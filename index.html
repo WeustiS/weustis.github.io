@@ -34,19 +34,72 @@
       var HEIGHT = 3000;
       var NUMBER = 200;
 
-      function generateNode() {
-        return new Konva.Circle({
-          x: WIDTH * Math.random(),
-          y: HEIGHT * Math.random(),
-          radius: 50,
-          fill: 'red',
-          stroke: 'black',
-        });
-      }
+      const imgData = [
+        {
+          "imgPath": "assets/art/img1.png",
+          "pos": [0,0],
+          "scale": [.1, .1]  
+        },
+        {
+            "imgPath": "assets/art/img2.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img3.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img4.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img5.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img6.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img7.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img8.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img9.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          },
+          {
+            "imgPath": "assets/art/img10.jpg",
+            "pos": [0,0],
+            "scale": [.1, .1]  
+          }
+      ]
 
-      for (var i = 0; i < NUMBER; i++) {
-        layer.add(generateNode());
-      }
+
+      imgData.forEach(function(img_dict) {
+        Konva.Image.fromURL(img_dict['imgPath'], function (artNode) {
+            artNode.setAttrs({
+              x: width/2+img_dict['pos'][0],
+              y: height/2+img_dict['pos'][1],
+              scaleX: img_dict['scale'][0],
+              scaleY: img_dict['scale'][1],
+            });
+            console.log(artNode);
+            layer.add(artNode);
+          });
+      });
     </script>
   </body>
 </html>
